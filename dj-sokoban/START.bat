@@ -1,0 +1,1 @@
+python sokoban.py < boards.txt
