@@ -102,8 +102,9 @@ while True:
         numCol = 0
         level += 1
 
-    hit_ball.setx(hit_ball.xcor() + hit_ball.dx)
-    hit_ball.sety(hit_ball.ycor() + hit_ball.dy)
+    new_x = hit_ball.xcor() + hit_ball.dx
+    new_y = hit_ball.ycor() + hit_ball.dy
+    hit_ball.goto(new_x, new_y)
 
     # Checking borders
     if hit_ball.ycor() > 370:
