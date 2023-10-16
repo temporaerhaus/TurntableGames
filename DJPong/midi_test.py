@@ -78,11 +78,11 @@ while True:
             inactive = False
         if msg.type == "control_change" and msg.control == 22:
             # if msg.type == 'pitchwheel':
-            if (msg.channel % 5) == 0:
+            if (msg.channel % 5) == 1:
                 lefty += 2 * (64 - msg.value)
                 # left_pad.sety(left_pad.ycor() + 10*(64-msg.value))
                 # left_pad.sety(msg.pitch/30)
-            elif (msg.channel % 5) == 1:
+            elif (msg.channel % 5) == 0:
                 righty += 2 * (64 - msg.value)
                 # right_pad.sety(right_pad.ycor() + 10*(64-msg.value))
                 # right_pad.sety(msg.pitch/30)
