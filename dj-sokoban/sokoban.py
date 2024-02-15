@@ -105,22 +105,24 @@ def drawTarget(x, y):
     decoration.penup()
     turtle.update()
 
-
-while True:
-    try:
-        line = input()
-    except EOFError:
+reading=True
+file = open("/home/pi/Desktop/TurntableGames/dj-sokoban/boards.txt", "r")
+while reading:
+    line = file.readline()
+    if line == "":
         break
+    line = line.rstrip()
     width = len(line)
     if width == 0:
         continue
     boards.append([])
-    try:
-        while (len(line) == width):
-            boards[level].append(line)
-            line = input()
-    except EOFError:
-        break
+    while (len(line) == width):
+        boards[level].append(line)
+        line = file.readline()
+        if line=="":
+            reading=False
+            break
+        line=line.rstrip()
     level += 1
 
 print(boards)
@@ -370,7 +372,7 @@ while True:
             inactive = False
         if msg.type == 'note_on' and (msg.note == 43 or msg.note == 18):
             exit()
-        if msg.type == 'note_on' and msg.note == 42:
+        if msg.type == 'note_on' and (msg.note == 42 or msg.note == 44):
             startRound()
             break
         if msg.type == 'note_on' and msg.note == 16:

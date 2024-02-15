@@ -101,6 +101,14 @@ while True:
         hit_ball.dy = numpy.sign(hit_ball.dy) * (abs(hit_ball.dy) + 1)
         numCol = 0
         level += 1
+        sketch.clear()
+        sketch.write(
+            "Spieler*in 1: {}    Level: {}     Spieler*in 2: {}".format(
+                left_player, level, right_player
+            ),
+            align="center",
+            font=("Terminal", 24, "normal"),
+        )
 
     new_x = hit_ball.xcor() + hit_ball.dx
     new_y = hit_ball.ycor() + hit_ball.dy
