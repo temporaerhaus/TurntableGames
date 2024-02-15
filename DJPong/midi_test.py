@@ -25,7 +25,7 @@ right_pad.penup()
 right_pad.goto(560, 0)
 
 hit_ball = turtle.Turtle()
-hit_ball.speed(40)
+hit_ball.speed(0)
 hit_ball.shape("square")
 hit_ball.color("white")
 hit_ball.penup()
