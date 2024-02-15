@@ -79,6 +79,7 @@ while True:
 #    print(choice)
 #
     if choice!=None:
+        print([games[choice][1],games[choice][2]])
         call([games[choice][1],games[choice][2]])
 #    choice=str(choice)
 #    if choice == "1":
