@@ -59,7 +59,7 @@ while True:
             elif msg.note >= 19 and msg.note <= 21:
                 t_tilde=t+360/(2*num)
                 choice = t_tilde // (360/num)
-    sel_ball.goto(math.cos(t*2*math.pi/360),math.sin(t*2*math.pi/360))
+    sel_ball.goto(200*math.cos(t*2*math.pi/360),200*math.sin(t*2*math.pi/360))
     if t< - 360/(2*num):
         t += 360
     if t> 360-360/(2*num):
@@ -78,8 +78,8 @@ while True:
 #
 #    print(choice)
 #
-
-    call([games[t][1],games[t][2]])
+    if choice!=None:
+        call([games[choice][1],games[choice][2]])
 #    choice=str(choice)
 #    if choice == "1":
 #        print("Starte Pong...")
