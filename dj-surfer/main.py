@@ -71,8 +71,9 @@ numCol = 0
 inactivity = 0
 inactive = False
 level = 1
+playerx=0
+sumx=0
 while True:
-    playerx =0
     for msg in inport.iter_pending():
         if inactive:
          #   hit_ball.goto(0, 0)
@@ -89,19 +90,18 @@ while True:
             level = 1
           #  inactive = False
         if msg.type == "control_change" and msg.control == 22:
-            # if msg.type == 'pitchwheel':
             if (msg.channel % 5) == 1:
-
-                direction =(64-msg.value)
-                if direction >8:
+                sumx += 64-msg.value
+                if sumx > 8:
                     playerx +=1
-                if direction <-8:
+                    sumx=0
+                if sumx < -8:
                     playerx -=1
+                    sumx=0
                 if playerx > 1:
                     playerx -=1
                 if playerx < -1:
                     playerx +=1
-
             if playerx == 1:
                 player.goto(225, -400)
             elif playerx == 0:
