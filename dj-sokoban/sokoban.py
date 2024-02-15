@@ -111,7 +111,7 @@ while reading:
     line = file.readline()
     if line == "":
         break
-    line = line.rstrip()
+    line = line.rstrip('\n')
     width = len(line)
     if width == 0:
         continue
@@ -122,7 +122,7 @@ while reading:
         if line=="":
             reading=False
             break
-        line=line.rstrip()
+        line=line.rstrip('\n')
     level += 1
 
 print(boards)
