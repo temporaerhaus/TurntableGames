@@ -70,8 +70,8 @@ while True:
                 select_new = 0
         if select == select_new:
             select_time += 1
-            color_red = 0xff - select_time*0xff/100
-            color_green = 0x00 + select_time*0xff/100
+            color_red = int(0xff - select_time*0xff/100)
+            color_green = int(0x00 + select_time*0xff/100)
             texte[select].color(color_red,color_green,0)
         select = select_new
         if select_time == 100:
