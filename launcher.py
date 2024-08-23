@@ -63,9 +63,9 @@ while True:
     if t%game_angle <= 10 or t%game_angle >= game_angle-10:
         select_new = None
         if t%game_angle <= 10:
-            select_new = t//game_angle
+            select_new = int(t//game_angle)
         elif t%game_angle >= game_angle-10:
-            select_new = t//game_angle +1
+            select_new = int(t//game_angle) +1
             if select_new == num:
                 select_new = 0
         if select == select_new:
