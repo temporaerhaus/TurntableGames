@@ -7,7 +7,8 @@ import math
 
 games=[
     ["Pong", "python", r"/home/pi/Desktop/TurntableGames/DJPong/midi_test.py"],
-    ["Sokoban","python", r"/home/pi/Desktop/TurntableGames/dj-sokoban/sokoban.py"]
+    ["Sokoban","python", r"/home/pi/Desktop/TurntableGames/dj-sokoban/sokoban.py"],
+#    ["tetris","python", r"/home/pi/Desktop/TurntableGames/dj-tetris/__.py"],
 ]
 
 sc = turtle.Screen()
@@ -34,7 +35,7 @@ for pos,game in enumerate(games):
     sketch.penup()
     sketch.hideturtle()
     sketch.goto(int(300 * math.cos(pos*2*math.pi/num)), int(300 * math.sin(pos*2*math.pi/num)))
-    sketch.write(game[0], font=("Terminal",24,"normal"))
+    sketch.write(game[0], font=("Terminal",24,"normal"), align="center")
 
 sel_ball = turtle.Turtle()
 sel_ball.speed(0)
