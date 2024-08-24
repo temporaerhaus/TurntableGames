@@ -77,15 +77,10 @@ while True:
             level = 1
             inactive = False
         if msg.type == "control_change" and msg.control == 22:
-            # if msg.type == 'pitchwheel':
             if (msg.channel % 5) == 1:
                 lefty += 2 * (64 - msg.value)
-                # left_pad.sety(left_pad.ycor() + 10*(64-msg.value))
-                # left_pad.sety(msg.pitch/30)
             elif (msg.channel % 5) == 0:
                 righty += 2 * (64 - msg.value)
-                # right_pad.sety(right_pad.ycor() + 10*(64-msg.value))
-                # right_pad.sety(msg.pitch/30)
         elif msg.type == "note_on" and msg.note == 18:
             exit()
     left_pad.sety(left_pad.ycor() + lefty)
@@ -173,9 +168,9 @@ while True:
         hit_ball.dx *= -1
         numCol += 1
 
-    if inactivity > 300:
-        inactive = True
-        inactivity = 0
+    if inactivity > 500:
+        # exit to game selection screen
+        exit()
 
     if left_pad.ycor() > 800:
         left_pad.sety(-800)
