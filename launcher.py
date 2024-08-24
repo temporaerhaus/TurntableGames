@@ -81,7 +81,7 @@ while True:
     # process the incoming signals of the dj desk
     for msg in inport.iter_pending():
         if msg.type == "control_change" and msg.control == 22:
-            t += 2*(msg.value-64)
+            t -= 2*(msg.value-64)
         elif msg.type == "note_on":
             if msg.note == 8:
                 exit()
