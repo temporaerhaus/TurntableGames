@@ -13,7 +13,9 @@ import time
 
 sc = turtle.Screen()
 sc.bgcolor("black")
-sc.setup(width=.9, height=.9)
+screenTk = sc.getcanvas().winfo_toplevel()
+screenTk.attributes("-fullscreen", True)
+sc.setup(width=1.0, height=1.0)
 
 turtle.register_shape("crate", ((1, 1), (1, -1), (-1, -1),
                       (-1, 1), (1, 1), (-1, -1), (-1, 1), (1, -1)))
@@ -412,6 +414,10 @@ while True:
         inactivity += 1
     else:
         inactivity = 0
+    time.sleep(0.02)
+    if inactivity > 500:
+        print("Inactive")
+        exit()
 
 turtle.update()
 turtle.done()

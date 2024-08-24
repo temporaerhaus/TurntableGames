@@ -101,11 +101,10 @@ while True:
             color_change = int(0xff - select_time*0xff/select_time_max)
             texte[select].color((color_change,255,color_change))
             texte[select].write(games[select][0], font=("Terminal",24,"normal"), align="center")
-            if text_set== False:
+            if not text_set:
                 exp_text.clear()
                 exp_text.write("Spiel startet gleich", font=("Terminal",24,"normal"), align="center")
                 text_set = True
-                print("Set to true")
         else:
             select_time = 0
             for pos, text in enumerate(texte):
@@ -126,7 +125,6 @@ while True:
             exp_text.clear()
             exp_text.write("Spiel auswählen", font=("Terminal",24,"normal"), align="center")
             text_set = False
-            print("Set to false")
     sel_ball.goto(200*math.cos(t*2*math.pi/360),200*math.sin(t*2*math.pi/360))
     if t< - 360/(2*num):
         t += 360
@@ -136,4 +134,3 @@ while True:
         print(choice)
         call([games[choice][1],games[choice][2]])
         t = game_angle/2
-    print(text_set)
