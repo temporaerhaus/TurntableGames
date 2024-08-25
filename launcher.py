@@ -24,6 +24,7 @@ games=[
 texte=[]
 
 sc = turtle.Screen()
+sc.tracer(0)
 sc.colormode(255)
 sc.bgcolor("black")
 screenTk = sc.getcanvas().winfo_toplevel()
@@ -75,8 +76,11 @@ select = None
 
 text_set = False
 
-while True:
+def drawloop():
+    global sc, t, select_time, select_time_max, select, text_set
     choice=None
+
+    sc.update()
     
     # process the incoming signals of the dj desk
     for msg in inport.iter_pending():
@@ -134,3 +138,9 @@ while True:
         print(choice)
         call([games[choice][1],games[choice][2]])
         t = game_angle/2
+
+    sc.ontimer(drawloop, 30)
+
+
+drawloop()
+sc.mainloop()
