@@ -103,6 +103,7 @@ def drawloop():
         if select == select_new:
             select_time += 1
             color_change = int(0xff - select_time*0xff/select_time_max)
+            texte[select].clear()
             texte[select].color((color_change,255,color_change))
             texte[select].write(games[select][0], font=("Terminal",24,"normal"), align="center")
             if not text_set:
@@ -112,6 +113,7 @@ def drawloop():
         else:
             select_time = 0
             for pos, text in enumerate(texte):
+                text.clear()
                 text.color("white")
                 text.write(games[pos][0], font=("Terminal",24,"normal"), align="center")
             exp_text.clear()
@@ -123,6 +125,7 @@ def drawloop():
     else:
         select_time = 0
         for pos, text in enumerate(texte):
+            text.clear()
             text.color("white")
             text.write(games[pos][0], font=("Terminal",24,"normal"), align="center")
         if text_set:
@@ -139,8 +142,8 @@ def drawloop():
         call([games[choice][1],games[choice][2]])
         t = game_angle/2
 
-    sc.ontimer(drawloop, 30)
-
+    sc.ontimer(drawloop, 60)
+		
 
 drawloop()
 sc.mainloop()
